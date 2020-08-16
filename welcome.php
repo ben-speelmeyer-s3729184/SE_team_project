@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['login_user'])){
+    header("location: index.php");
+  };
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -28,7 +34,7 @@
         <a class="nav-link " href="users.html">Users</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link  " href="logout.html">Logout</a>
+        <a class="nav-link  " href="logout.php">Logout</a>
       </li>
     </ul>
   </nav>

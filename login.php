@@ -1,41 +1,27 @@
 <?php
-  session_start();
-  if(isset($SESSION["loggedin"])) && $_SESSION['loggedin'] === true){
-    hedaer("location: welcome.php");
-    exit;
-  }
-  require_once "config.php";
+ include("config.php");
+ session_start();
 
-  $username = $password = "":
-  $username_err = $password_err = "";
+ if($_SERVER["REQUEST_METHOD"] == "POST"){
+   $myUserName = mysqli_real_escape_string($db,$_POST['userName']);
+   $myPassword = mysqli_real_escape_string($db,$_POST['password']);
 
-  if($_SERVER["REQUEST_METHOD"] == "POST"){
-    if(empty(trim($_POST["username"]))){
-      $username_err = "Please enter username";
-    } else {
-      $username = trim($_POST["username"]);
+   $sql = "SELECT id FROM users where username = '$myUserName' and password = '$myPassword'";
+   $result = mysqli_query($db,$sql);
+   $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+   $active = $row['active'];
+
+   $count = mysqli_num_rows($result);
+
+   if ($count == 1){
+     session_register("myUserName");
+     $_SESSION['login_user'] = $myUserName;
+
+     header("location: welcome.php");
+    }else {
+      $error = "Your username or password is incorrect";
     }
-
-    if(empty(trim($_POST["password"]))){
-      $passeword_err = "Please enter your password";
-    } else {
-      $password = trim($_POST["password"]);
-    }
-
-    if(empty($username_err) && empty($password_err)){
-      $sql = "SELECT id, username, password from users WHERE username = ?";
-
-      if($stmt = mysqli_prepare($link, $sql)){
-        mysqli_stmt_bind_param($stmt, "s", $param_username);
-
-        $param_username = $username;
-
-        
-      }
-    }
-  }
-
-  
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -73,18 +59,18 @@
   </nav>
   <body>
     <div class="container">
-      <form id="signinForm">
+      <form action = "" method = "post">
         <h1>LOGIN</h1>
         <label>
-          <p class="label-txt">EMAIL</p>
-          <input type="text" class="input" id="emailInputSignin">
+          <p class="label-txt">Username</p>
+          <input type="text" class="input" id="userName">
           <div class="line-box">
             <div class="line"></div>
           </div>
         </label>
         <label>
-          <p class="label-txt">PASSWORD</p>
-          <input type="password" class="input" id="passwordInputSignin">
+          <p class="label-txt">Password</p>
+          <input type="password" class="input" id="password">
           <div class="line-box">
             <div class="line"></div>
           </div>
