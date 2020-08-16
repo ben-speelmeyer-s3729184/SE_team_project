@@ -63,14 +63,14 @@
         <h1>LOGIN</h1>
         <label>
           <p class="label-txt">Username</p>
-          <input type="text" class="input" id="userName">
+          <input type="text" class="input" name="userName">
           <div class="line-box">
             <div class="line"></div>
           </div>
         </label>
         <label>
           <p class="label-txt">Password</p>
-          <input type="password" class="input" id="password">
+          <input type="password" class="input" name="password">
           <div class="line-box">
             <div class="line"></div>
           </div>
