@@ -14,7 +14,7 @@
    $count = mysqli_num_rows($result);
 
    if ($count == 1){
-     session_register("myUserName");
+     
      $_SESSION['login_user'] = $myUserName;
 
      header("location: welcome.php");
@@ -44,7 +44,7 @@
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link " href="index.hmtl">Home</a>
+        <a class="nav-link " href="index.php">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="locations.html">Locations</a>
