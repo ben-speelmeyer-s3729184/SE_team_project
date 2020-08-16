@@ -20,7 +20,8 @@
      header("location: welcome.php");
     }else {
       $error = "Your username or password is incorrect";
-      alert($error);
+      
+      echo "<script type='text/javascript'>alert('$error');</script>";
     }
 }
 ?>
