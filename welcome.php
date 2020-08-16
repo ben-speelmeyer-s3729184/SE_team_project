@@ -21,11 +21,12 @@
     <div class="container-fluid bg-dark text-white p-3">
         <h1>Robot Tour Management System</h1>
     </div>
+    <p>Login as: <?php $_SESSION['login_user']?></p>
   </header>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link " href="index.html">Home</a>
+        <a class="nav-link " href="index.php">Home</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link " href="locations.html">Locations</a>
