@@ -21,7 +21,7 @@
     <div class="container-fluid bg-dark text-white p-3">
         <h1>Robot Tour Management System</h1>
     </div>
-    <p>Login as: <?php $_SESSION['login_user']?></p>
+    <p>Login as: <?php echo $_SESSION['login_user']?></p>
   </header>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav">
