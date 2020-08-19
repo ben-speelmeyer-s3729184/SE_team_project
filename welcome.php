@@ -20,8 +20,9 @@
   <header>
     <div class="container-fluid bg-dark text-white p-3">
         <h1>Robot Tour Management System</h1>
+        <p>Login as: <?php echo $_SESSION['login_user']?></p>
     </div>
-    <p>Login as: <?php echo $_SESSION['login_user']?></p>
+    
   </header>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav">
@@ -29,10 +30,10 @@
         <a class="nav-link " href="index.php">Home</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link " href="locations.html">Locations</a>
+        <a class="nav-link " href="addNewLocations.php">Add Locations</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link " href="users.html">Users</a>
+        <a class="nav-link " href="editExistingLocations.php">Edit Locaiton</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link  " href="logout.php">Logout</a>

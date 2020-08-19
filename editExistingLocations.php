@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['login_user'])){
+    header("location: index.php");
+  };
+?>
 <!doctype html>
 <html>
 
@@ -18,21 +24,22 @@
 <header>
     <div class="container-fluid bg-dark text-white p-3">
         <h1>Robot Tour Management System</h1>
+        <p>Login as: <?php echo $_SESSION['login_user']?></p>
     </div>
   </header>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav">
-      <li class="nav-item active">
+    <li class="nav-item active">
         <a class="nav-link " href="index.php">Home</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="locations.html">Locations</a>
+      <li class="nav-item active">
+        <a class="nav-link " href="addNewLocations.php">Add Locations</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="users.html">Users</a>
+      <li class="nav-item active">
+        <a class="nav-link " href="editExistingLocations.php">Edit Locaiton</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled " href="#">Logout</a>
+      <li class="nav-item active">
+        <a class="nav-link  " href="logout.php">Logout</a>
       </li>
     </ul>
   </nav>
@@ -49,7 +56,7 @@
 
             <div class="row" style="background-color:white;">
                 <div class="col-12">
-                    <h2 class="contact-title">Add A New Location</h2>
+                    <h2 class="contact-title">Edit Existing Locations</h2>
                 </div>
                 <div class="col-lg-8">
                     <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
@@ -76,7 +83,7 @@
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <button type="submit" class="button button-contactForm boxed-btn" onclick="skip()">Add</button>
+                            <button type="submit" class="button button-contactForm boxed-btn" onclick="skip()">Submit</button>
                         
                         </div>
                     </form>
@@ -85,4 +92,4 @@
             </div>
         </div>
     </section>
-<!-- ================ contact section end ================= -->
+<!-- ================ Edit Location end ================= -->
