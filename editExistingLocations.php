@@ -1,4 +1,5 @@
 <?php
+  include('config.php');
   session_start();
   if(!isset($_SESSION['login_user'])){
     header("location: index.php");
@@ -44,10 +45,7 @@
     </ul>
   </nav>
 <body class="bg">
-    <div class="container">
-      <!-- <button class="btn-redirect" onclick="window.location.href='index.php';">BACK TO HOME</button> -->
-      <form id="signinForm">
-      </div>
+    
 
       <section class="contact-section">
         <div class="container">
@@ -59,6 +57,15 @@
                     <h2 class="contact-title">Edit Existing Locations</h2>
                 </div>
                 <div class="col-lg-8">
+                    <select id='selectFunction'onchange='myFunction()'>
+                      <?php
+                        $q = "select locationId from locations;";
+                        $result = mysqli_query($db,$q) or die(mysqli_error($db));
+                        while($row=mysqli_fetch_array($results)){
+                          print"<option value='{$row['locationId']}'>{$row['locationId']}</option>";
+                        }
+                      ?>
+                    </select>
                     <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
                         <div class="row">
                             <div class="col-12">

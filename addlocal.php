@@ -10,8 +10,7 @@
   $sql = "INSERT INTO locations(locationName, locationXY, locationDescription, locationMinTime) VALUES ('$locationName','$coordinates','$description','$minTime');";
   
   if(mysqli_query($db,$sql)){
-    echo "<script type='text/javascript'>alert('Data entered successfully');</script>";
-    sleep(5);
+    header('location: worked.php');
   }else{
     echo "ERROR: Not able to execute $sql. " . mysqli_error($db);
   }
