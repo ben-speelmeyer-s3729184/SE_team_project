@@ -42,10 +42,7 @@
     </ul>
   </nav>
 <body class="bg">
-    <div class="container">
-      <!-- <button class="btn-redirect" onclick="window.location.href='index.php';">BACK TO HOME</button> -->
-      <form id="signinForm">
-      </div>
+    
 
       <section class="contact-section">
         <div class="container">
