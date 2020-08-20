@@ -1,6 +1,7 @@
  <?php
   include("config.php");
   session_start();
+  echo "<script type='text/javascript'>alert('Data entered successfully');</script>";
   $locationName = $_POST['locationName'];
   $coordinates = $_POST['coordinates'];
   $description = $_POST['description'];
