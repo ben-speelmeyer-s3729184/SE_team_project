@@ -1,10 +1,10 @@
 <?php
   include("config.php");
   session_start();
-  $locationName = mysqli_real_escape_string($db, $_REQUEST['locationName']);
-  $coordinates = mysqli_real_escape_string($db, $_REQUEST['coordinates']);
-  $description = mysqli_real_escape_string($db, $_REQUEST['description']);
-  $minTime = mysqli_real_escape_string($db, $_REQUEST['minTime']);
+  $locationName = mysqli_real_escape_string($db, $_POST['locationName']);
+  $coordinates = mysqli_real_escape_string($db, $_POST['coordinates']);
+  $description = mysqli_real_escape_string($db, $_POST['description']);
+  $minTime = mysqli_real_escape_string($db, $_POST['minTime']);
   
   $sql = "INSERT INTO locations(locationName, locationXY, locationDescription, locationMinTime) VALUES ('$locationName','$coordinates','$description','$minTime');";
 
