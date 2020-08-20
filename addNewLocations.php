@@ -13,7 +13,7 @@
       echo "<script type='text/javascript'>alert('Data entered successfully');</script>";
     }else{
       echo "ERROR: Not able to execute $sql. " . mysqli_error($db);
-    }
+    };
   };
 
   
