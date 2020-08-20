@@ -57,7 +57,7 @@
                     <h2 class="contact-title">Add A New Location</h2>
                 </div>
                 <div class="col-lg-8">
-                    <form class="form-contact contact_form" action="addlocal.php "method="post">
+                    <form class="form-contact contact_form" action="addlocal.php" method="post">
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
@@ -81,7 +81,7 @@
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <button type="submit" class="button button-contactForm boxed-btn" >Add</button>
+                            <input type="submit" class="button button-contactForm boxed-btn" value="Add">
                         
                         </div>
                     </form>
