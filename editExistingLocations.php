@@ -101,7 +101,7 @@
                               <input type=submit class="button button-contactForm boxed-btn" value="Add"/>
                           
                           </div>
-                      </form>"
+                      </form>";
                     };
                     ?>
                     
