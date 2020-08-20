@@ -3,16 +3,24 @@
   if(!isset($_SESSION['login_user'])){
     header("location: index.php");
   };
-  $locationName = $_POST['locationName'];
-  $coordinates = $_POST['coordinates'];
-  $description = $_POST['description'];
-  $minTime = $_POST['minTime'];
+  if(isset($_POST['locationName'])){
+    $locationName = $_POST['locationName'];
+  };
+  if(isset($_POST['coordinates'])){
+    $coordinates = $_POST['coordinates'];
+  };
+  if(isset($_POST['description'])){
+    $description = $_POST['description'];
+  };
+  if(isset($_POST['minTime'])){
+    $minTime = $_POST['minTime'];
+  };
   
-  $sql = "INSERT INTO locations(locationName, locationXY, locationDescription, locationMinTime) VALUES ('$locationName','$coordinates','$description','$minTime)";
+  $sql = mysqli_query("INSERT INTO locations(locationName, locationXY, locationDescription, locationMinTime) VALUES ('$locationName','$coordinates','$description','$minTime)");
 
-  $retval = mysql_query($sql);
+  
 
-  if(!$retval){
+  if(!$sql){
     die('Could not enter data: ' . mysql_error());
   }
   echo "<script type='text/javascript'>alert('Data entered successfully');</script>";
