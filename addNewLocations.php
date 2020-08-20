@@ -16,12 +16,12 @@
     $minTime = $_POST['minTime'];
   };
   
-  $sql = mysqli_query("INSERT INTO locations(locationName, locationXY, locationDescription, locationMinTime) VALUES ('$locationName','$coordinates','$description','$minTime)");
+  $sql = "INSERT INTO locations(locationName, locationXY, locationDescription, locationMinTime) VALUES ('$locationName','$coordinates','$description','$minTime')";
 
-  
+  $retval = mysqli_query($sql,$db);
 
-  if(!$sql){
-    die('Could not enter data: ' . mysql_error());
+  if(!$retval){
+    die('Could not enter data: ' . mysqli_error());
   }
   echo "<script type='text/javascript'>alert('Data entered successfully');</script>";
 ?>
