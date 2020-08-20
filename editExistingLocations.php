@@ -58,52 +58,46 @@
                     <h2 class="contact-title">Edit Existing Locations</h2>
                 </div>
                 <div class="col-lg-8">
-                    <select id='selectFunction'onchange='myFunction()'>
+                    
                       <?php
-                        $q = "select locationId from locations;";
+                        $q = "select * from locations;";
                         $result = mysqli_query($db,$q) or die(mysqli_error($db));
                         while($row=mysqli_fetch_array($result)){
-                          print"<option value='{$row['locationId']}'>{$row['locationId']}</option>";
+                          print"<p>Location ID: {$row['locationID']} </p></n>";
+                          print"<p>Location Name: {$row['locationName']} </p></n>";
+                          print"<p>Location Coordinates: {$row['locationXY']} </p></n>";
+                          print"<p>Location Description: {$row['locationDescription']} </p></n>";
+                          print"<p>Location Min Time: {$row['locationMinTime']} </p></n></n>";
                         }
                       ?>
-                    </select>
-                    <p id=menuVar></p>
-                    <?php
-                    $menuVar = 'menuVar';
-                    $sql = "select * from locations where locationId ='$menuVar';";
-                    $results = mysqli_query($db,$sql) or die(mysqli_error($db));
-                    while($row=mysqli_fetch_array($results)){
-                    echo'
-                      <form method="post" action="submit.php"  class="form-contact contact_form" >
+                               <form method=post action="addlocal.php" class="form-contact contact_form" >
                         <div class="row">
-                             <div class="col-12">
-                                  <div class="form-group">
-                                        <input class="form-control valid" name="locationName" id="locationName" type="text" value="{$row["locationName"]}"></textarea>
-                                  </div>
-                              </div>
-                              <div class="col-12">
-                                  <div class="form-group">
-                                      <input class="form-control valid" name="coordinates" id="coordinates" type="text" value="{ $row["locationXY"]}">
-                                  </div>
-                              </div>
-                              <div class="col-12">
-                                  <div class="form-group">
-                                      <textarea class="form-control w-100" name="description" id="description" cols="30" rows="9" value="{$row["locationDescription"]}"></textarea>
-                                  </div>
-                              </div>
-                              <div class="col-12">
-                                  <div class="form-group">
-                                      <input class="form-control" name="minTime" id="minTime" type="text" value="{$row["locationMinTime"]}">
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="form-group mt-3">
-                              <input type=submit class="button button-contactForm boxed-btn" value="Add"/>
-                          
-                          </div>
-                      </form>';
-                    };
-                    ?>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="form-control valid" name="locationName" id="locationName" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Location Name'" placeholder="Enter Location Name"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="form-control valid" name="coordinates" id="coordinates" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter x-y coordinates'" placeholder="Enter x-y coordinatese">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea class="form-control w-100" name="description" id="description" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Description'" placeholder=" Enter Description"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="form-control" name="minTime" id="minTime" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Min. Time'" placeholder="Enter Min. Tme">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type=submit class="button button-contactForm boxed-btn" value="Add"/>
+                        
+                        </div>
+                    </form>
                     
                     
                 </div>
