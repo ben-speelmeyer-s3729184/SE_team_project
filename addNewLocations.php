@@ -3,6 +3,19 @@
   if(!isset($_SESSION['login_user'])){
     header("location: index.php");
   };
+  $locationName = $_POST['locationName'];
+  $coordinates = $_POST['coordinates'];
+  $description = $_POST['description'];
+  $minTime = $_POST['minTime'];
+  
+  $sql = "INSERT INTO locations(locationName, locationXY, locationDescription, locationMinTime) VALUES ('$locationName','$coordinates','$description','$minTime)";
+
+  $retval = mysql_query($sql);
+
+  if(!$retval){
+    die('Could not enter data: ' . mysql_error());
+  }
+  echo "<script type='text/javascript'>alert('Data entered successfully');</script>";<script type=j
 ?>
 <!doctype html>
 <html>
@@ -83,7 +96,7 @@
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <button type="submit" class="button button-contactForm boxed-btn" onclick="skip()">Add</button>
+                            <button type="submit" class="button button-contactForm boxed-btn" >Add</button>
                         
                         </div>
                     </form>
