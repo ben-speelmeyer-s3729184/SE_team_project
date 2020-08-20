@@ -15,7 +15,7 @@
   if(!$retval){
     die('Could not enter data: ' . mysql_error());
   }
-  echo "<script type='text/javascript'>alert('Data entered successfully');</script>";<script type=j
+  echo "<script type='text/javascript'>alert('Data entered successfully');</script>";
 ?>
 <!doctype html>
 <html>
