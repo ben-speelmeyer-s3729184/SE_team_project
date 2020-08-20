@@ -14,7 +14,7 @@
   }else{
     echo "ERROR: Not able to execute $sql. " . mysqli_error($db);
   }
-  exit(0);
+  header('location: addNewLocations.php');
 ?>
   
  
