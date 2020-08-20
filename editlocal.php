@@ -7,13 +7,15 @@
   $coordinates = $_POST['coordinates'];
   $description = $_POST['description'];
   $minTime = $_POST['minTime'];
+
+  $int_cast = (int)$locationId;
   
-  $sql = "UPDATE locations SET locationName = '$locationName', locationXY = '$coordinates', locationDescription = '$description', locationMinTime = '$minTime' WHERE locationId = '$locationId';";
+  $sql = "UPDATE locations SET locationName = '$locationName', locationXY = '$coordinates', locationDescription = '$description', locationMinTime = '$minTime' WHERE locationId = '$int_cast';";
   
   if(mysqli_query($db,$sql)){
     header('location: worked.php');
   }else{
     echo "ERROR: Not able to execute $sql. " . mysqli_error($db);
   }
-  header('location: editExistingwLocations.php');
+  header('location: editExistingLocations.php');
 ?>
