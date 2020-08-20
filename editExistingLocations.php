@@ -26,7 +26,7 @@
 <header>
     <div class="container-fluid bg-dark text-white p-3">
         <h1>Robot Tour Management System</h1>
-        <p>Login as: echo $_SESSION['login_user']?></p>
+        <p>Login as: <?php echo $_SESSION['login_user']?></p>
     </div>
   </header>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -78,22 +78,22 @@
                         <div class="row">
                              <div class="col-12">
                                   <div class="form-group">
-                                      <input class="form-control valid" name="locationName" id="locationName" type="text" value="echo $row['locationName']"></textarea>
+                                        <input class="form-control valid" name="locationName" id="locationName" type="text" value="{$row['locationName']}"></textarea>
                                   </div>
                               </div>
                               <div class="col-12">
                                   <div class="form-group">
-                                      <input class="form-control valid" name="coordinates" id="coordinates" type="text" value="echo $row['locationXY'>">
+                                      <input class="form-control valid" name="coordinates" id="coordinates" type="text" value="{ $row['locationXY']}">
                                   </div>
                               </div>
                               <div class="col-12">
                                   <div class="form-group">
-                                      <textarea class="form-control w-100" name="description" id="description" cols="30" rows="9" value="echo $row['locationDescription']"></textarea>
+                                      <textarea class="form-control w-100" name="description" id="description" cols="30" rows="9" value="{$row['locationDescription']}"></textarea>
                                   </div>
                               </div>
                               <div class="col-12">
                                   <div class="form-group">
-                                      <input class="form-control" name="minTime" id="minTime" type="text" value="echo $row['locationMinTime']">
+                                      <input class="form-control" name="minTime" id="minTime" type="text" value="{$row['locationMinTime']}">
                                   </div>
                               </div>
                           </div>
