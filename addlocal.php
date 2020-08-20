@@ -1,9 +1,9 @@
  <?php
   include("config.php");
-  $locationName = mysqli_real_escape_string($db, $_P['locationName']);
-  $coordinates = mysqli_real_escape_string($db, $_P['coordinates']);
-  $description = mysqli_real_escape_string($db, $_P['description']);
-  $minTime = mysqli_real_escape_string($db, $_P['minTime']);
+  $locationName = mysqli_real_escape_string($db, $_REQUEST['locationName']);
+  $coordinates = mysqli_real_escape_string($db, $_REQUEST['coordinates']);
+  $description = mysqli_real_escape_string($db, $_REQUEST['description']);
+  $minTime = mysqli_real_escape_string($db, $_REQUEST['minTime']);
   
   $sql = "INSERT INTO locations(locationName, locationXY, locationDescription, locationMinTime) VALUES ('$locationName','$coordinates','$description','$minTime');";
   
