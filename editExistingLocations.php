@@ -103,6 +103,22 @@
                         
                         </div>
                     </form>
+                    <div class="col-12">
+                    <h2 class="contact-title">Delete Existing Locations</h2>
+                    </div>
+                    <form method=post action="deletelocal.php" class="form-contact contact_form" >
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="form-control valid" name="locationId" id="locationId" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Location Id to delete'" placeholder="Enter Location Id delete"></textarea>
+                                </div>
+                            </div>
+                            
+                        <div class="form-group mt-3">
+                            <input type=submit class="button button-contactForm boxed-btn" value="Delete"/>
+                        
+                        </div>
+                    </form>
                     
                     
                 </div>
