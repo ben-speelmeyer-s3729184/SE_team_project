@@ -61,7 +61,7 @@
                       <?php
                         $q = "select locationId from locations;";
                         $result = mysqli_query($db,$q) or die(mysqli_error($db));
-                        while($row=mysqli_fetch_array($results)){
+                        while($row=mysqli_fetch_array($result)){
                           print"<option value='{$row['locationId']}'>{$row['locationId']}</option>";
                         }
                       ?>
