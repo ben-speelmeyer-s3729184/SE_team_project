@@ -63,15 +63,20 @@
                         $q = "select * from locations;";
                         $result = mysqli_query($db,$q) or die(mysqli_error($db));
                         while($row=mysqli_fetch_array($result)){
-                          print"<p>Location ID: {$row['locationID']} </p></n>";
+                          print"<p>Location ID: {$row['locationId']} </p></n>";
                           print"<p>Location Name: {$row['locationName']} </p></n>";
                           print"<p>Location Coordinates: {$row['locationXY']} </p></n>";
                           print"<p>Location Description: {$row['locationDescription']} </p></n>";
                           print"<p>Location Min Time: {$row['locationMinTime']} </p></n></n>";
                         }
                       ?>
-                               <form method=post action="addlocal.php" class="form-contact contact_form" >
+                               <form method=post action="editlocal.php" class="form-contact contact_form" >
                         <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="form-control valid" name="locationId" id="locationId" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Location Id'" placeholder="Enter Location Id"></textarea>
+                                </div>
+                            </div>
                             <div class="col-12">
                                 <div class="form-group">
                                     <input class="form-control valid" name="locationName" id="locationName" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Location Name'" placeholder="Enter Location Name"></textarea>
@@ -94,7 +99,7 @@
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <input type=submit class="button button-contactForm boxed-btn" value="Add"/>
+                            <input type=submit class="button button-contactForm boxed-btn" value="Edit"/>
                         
                         </div>
                     </form>
