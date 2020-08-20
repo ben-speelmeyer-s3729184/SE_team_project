@@ -1,4 +1,5 @@
 <?php
+  include("config.php");
   session_start();
   if(!isset($_SESSION['login_user'])){
     header("location: index.php");
@@ -16,7 +17,7 @@
     $minTime = $_POST['minTime'];
   };
   
-  $sql = "INSERT INTO locations(locationName, locationXY, locationDescription, locationMinTime) VALUES ('$locationName','$coordinates','$description','$minTime')";
+  $sql = "INSERT INTO locations(locationName, locationXY, locationDescription, locationMinTime) VALUES ('$locationName','$coordinates','$description','$minTime');";
 
   $retval = mysqli_query($sql,$db);
 
