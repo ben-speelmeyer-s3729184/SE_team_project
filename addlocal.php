@@ -1,9 +1,10 @@
  <?php
   include("config.php");
-  $locationName = mysqli_real_escape_string($db, $_REQUEST['locationName']);
-  $coordinates = mysqli_real_escape_string($db, $_REQUEST['coordinates']);
-  $description = mysqli_real_escape_string($db, $_REQUEST['description']);
-  $minTime = mysqli_real_escape_string($db, $_REQUEST['minTime']);
+  session_start();
+  $locationName = $_POST['locationName']);
+  $coordinates = $_POST['coordinates']);
+  $description = $_POST['description']);
+  $minTime = $_POST['minTime']);
   
   $sql = "INSERT INTO locations(locationName, locationXY, locationDescription, locationMinTime) VALUES ('$locationName','$coordinates','$description','$minTime');";
   
@@ -12,6 +13,7 @@
   }else{
     echo "ERROR: Not able to execute $sql. " . mysqli_error($db);
   }
+  exit(0);
 ?>
   
  
