@@ -14,6 +14,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/fav/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/fav/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/fav/favicon-16x16.png">
+  <script src="function.js"></script>
 
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -66,34 +67,42 @@
                         }
                       ?>
                     </select>
-                    <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                    <p id=menuVar></p>
+                    <?php
+                    $menuVar = 'menuVar';
+                    $sql = "select * from locations where locationId ='$menuVar';";
+                    $results = mysqli_fetch_array($dv,$sql) or die(mysqli_error($db));
+                    while($row=mysqli_fetch_array($results)){
+                     print" <form method=post action="" class="form-contact contact_form" >
                         <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <input class="form-control valid" name="locationName" id="locationName" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Location Name'" placeholder="Enter Location Name"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <input class="form-control valid" name="coordinates" id="coordinates" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter x-y coordinates'" placeholder="Enter x-y coordinatese">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <textarea class="form-control w-100" name="description" id="description" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Description'" placeholder=" Enter Description"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <input class="form-control" name="minTime" id="minTime" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Min. Time'" placeholder="Enter Min. Tme">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mt-3">
-                            <button type="submit" class="button button-contactForm boxed-btn" onclick="skip()">Submit</button>
-                        
-                        </div>
-                    </form>
+                             <div class="col-12">
+                                  <div class="form-group">
+                                      <input class="form-control valid" name="locationName" id="locationName" type="text" value="{$row['locationName']}"></textarea>
+                                  </div>
+                              </div>
+                              <div class="col-12">
+                                  <div class="form-group">
+                                      <input class="form-control valid" name="coordinates" id="coordinates" type="text" value="{$row['locationXY']}">
+                                  </div>
+                              </div>
+                              <div class="col-12">
+                                  <div class="form-group">
+                                      <textarea class="form-control w-100" name="description" id="description" cols="30" rows="9" value="{$row['locationDescription']}"></textarea>
+                                  </div>
+                              </div>
+                              <div class="col-12">
+                                  <div class="form-group">
+                                      <input class="form-control" name="minTime" id="minTime" type="text" value="{$row['locationMinTime']}">
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form-group mt-3">
+                              <input type=submit class="button button-contactForm boxed-btn" value="Add"/>
+                          
+                          </div>
+                      </form>"
+                    };
+                    ?>
                 </div>
                 
             </div>
