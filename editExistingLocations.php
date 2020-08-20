@@ -71,7 +71,7 @@
                     <?php
                     $menuVar = 'menuVar';
                     $sql = "select * from locations where locationId ='$menuVar';";
-                    $results = mysqli_fetch_array($dv,$sql) or die(mysqli_error($db));
+                    $results = mysqli_query($dv,$sql) or die(mysqli_error($db));
                     while($row=mysqli_fetch_array($results)){}
                     ?>
                       <form method=post  class="form-contact contact_form" >
