@@ -1,20 +1,18 @@
 <?php
   include("config.php");
   session_start();
-  if(isset($_POST['locationName'])){
-    $locationName = mysqli_real_escape_string($db, $_POST['locationName']);
-    $coordinates = mysqli_real_escape_string($db, $_POST['coordinates']);
-    $description = mysqli_real_escape_string($db, $_POST['description']);
-    $minTime = mysqli_real_escape_string($db, $_POST['minTime']);
-    
-    $sql = "INSERT INTO locations(locationName, locationXY, locationDescription, locationMinTime) VALUES ('$locationName','$coordinates','$description','$minTime');";
+  $locationName = mysqli_real_escape_string($db, $_POST['locationName']);
+  $coordinates = mysqli_real_escape_string($db, $_POST['coordinates']);
+  $description = mysqli_real_escape_string($db, $_POST['description']);
+  $minTime = mysqli_real_escape_string($db, $_POST['minTime']);
+  
+  $sql = "INSERT INTO locations(locationName, locationXY, locationDescription, locationMinTime) VALUES ('$locationName','$coordinates','$description','$minTime');";
 
-    if(mysqli_query($db,$sql)){
-      echo "<script type='text/javascript'>alert('Data entered successfully');</script>";
-    }else{
-      echo "ERROR: Not able to execute $sql. " . mysqli_error($db);
-    };
-  };
+  if(mysqli_query($db,$sql)&&isset($_POST['locationName'])){
+    echo "<script type='text/javascript'>alert('Data entered successfully');</script>";
+  }else{
+    echo "ERROR: Not able to execute $sql. " . mysqli_error($db);
+  }
 
   
   
