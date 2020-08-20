@@ -57,34 +57,17 @@
                     <h2 class="contact-title">Add A New Location</h2>
                 </div>
                 <div class="col-lg-8">
-                    <form class="form-contact contact_form" method=post action=addlocal.php>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <input class="form-control valid" name="locationName" id="locationName" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Location Name'" placeholder="Enter Location Name"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <input class="form-control valid" name="coordinates" id="coordinates" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter x-y coordinates'" placeholder="Enter x-y coordinatese">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <textarea class="form-control w-100" name="description" id="description" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Description'" placeholder=" Enter Description"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <input class="form-control" name="minTime" id="minTime" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Min. Time'" placeholder="Enter Min. Tme">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mt-3">
-                            <input type=submit class="button button-contactForm boxed-btn" value="Add"/>
-                        
-                        </div>
-                    </form>
+                   <form action="addlocal.php" method="post">
+                     <label for="locationName">Location Name</label>
+                     <input type='text' id='locationName' name='locationName'><br><br>
+                     <label for="coordinates">Coordinates</label>
+                     <input type='text' id='coordinates' name='coordinates'><br><br>
+                     <label for="description">Description</label>
+                     <input type='text' id='description' name='description'><br><br>
+                     <label for="minTime">Min Time</label>
+                     <input type='text' id='minTime' name='minTime'><br><br>
+                     <input type="submit" value="Add">
+                   </form>
                 </div>
                 
             </div>
