@@ -26,7 +26,7 @@
 <header>
     <div class="container-fluid bg-dark text-white p-3">
         <h1>Robot Tour Management System</h1>
-        <p>Login as: <?php echo $_SESSION['login_user']?></p>
+        <p>Login as: echo $_SESSION['login_user']?></p>
     </div>
   </header>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -72,28 +72,28 @@
                     $menuVar = 'menuVar';
                     $sql = "select * from locations where locationId ='$menuVar';";
                     $results = mysqli_query($db,$sql) or die(mysqli_error($db));
-                    while($row=mysqli_fetch_array($results)){}
-                    ?>
+                    while($row=mysqli_fetch_array($results)){
+                    print"
                       <form method=post  class="form-contact contact_form" >
                         <div class="row">
                              <div class="col-12">
                                   <div class="form-group">
-                                      <input class="form-control valid" name="locationName" id="locationName" type="text" value="<?php echo $row['locationName']?>"></textarea>
+                                      <input class="form-control valid" name="locationName" id="locationName" type="text" value="echo $row['locationName']"></textarea>
                                   </div>
                               </div>
                               <div class="col-12">
                                   <div class="form-group">
-                                      <input class="form-control valid" name="coordinates" id="coordinates" type="text" value="<?php echo $row['locationXY']?>">
+                                      <input class="form-control valid" name="coordinates" id="coordinates" type="text" value="echo $row['locationXY'>">
                                   </div>
                               </div>
                               <div class="col-12">
                                   <div class="form-group">
-                                      <textarea class="form-control w-100" name="description" id="description" cols="30" rows="9" value="<?php echo $row['locationDescription']?>"></textarea>
+                                      <textarea class="form-control w-100" name="description" id="description" cols="30" rows="9" value="echo $row['locationDescription']"></textarea>
                                   </div>
                               </div>
                               <div class="col-12">
                                   <div class="form-group">
-                                      <input class="form-control" name="minTime" id="minTime" type="text" value="<?php echo $row['locationMinTime']?>">
+                                      <input class="form-control" name="minTime" id="minTime" type="text" value="echo $row['locationMinTime']">
                                   </div>
                               </div>
                           </div>
@@ -101,7 +101,9 @@
                               <input type=submit class="button button-contactForm boxed-btn" value="Add"/>
                           
                           </div>
-                      </form>
+                      </form>"
+                    };
+                    ?>
                     
                     
                 </div>
