@@ -72,37 +72,38 @@
                     $menuVar = 'menuVar';
                     $sql = "select * from locations where locationId ='$menuVar';";
                     $results = mysqli_fetch_array($dv,$sql) or die(mysqli_error($db));
-                    while($row=mysqli_fetch_array($results)){
-                     print" <form method="post" action="submit.php"  class="form-contact contact_form" >"
-                     print"   <div class="row">"
-                     print"        <div class="col-12">"
-                     print"             <div class="form-group">"
-                     print"                 <input class="form-control valid" name="locationName" id="locationName" type="text" value="{$row['locationName']}"></textarea>"
-                     print"             </div>"
-                    print"        </div>"
-                     print"         <div class="col-12">"
-                     print"             <div class="form-group">"
-                    print"                <input class="form-control valid" name="coordinates" id="coordinates" type="text" value="{$row['locationXY']}">"
-                    print"                </div>"
-                    print"            </div>"
-                    print"            <div class="col-12">"
-                    print"                <div class="form-group">"
-                    print"                    <textarea class="form-control w-100" name="description" id="description" cols="30" rows="9" value="{$row['locationDescription']}"></textarea>"
-                    print"                </div>"
-                    print"            </div>"
-                    print"            <div class="col-12">"
-                    print"                <div class="form-group">"
-                    print"                    <input class="form-control" name="minTime" id="minTime" type="text" value="{$row['locationMinTime']}">"
-                    print"                </div>"
-                    print"            </div>"
-                    print"        </div>"
-                    print"        <div class="form-group mt-3">"
-                    print"            <input type=submit class="button button-contactForm boxed-btn" value="Add"/>"
-                          
-                    print"        </div>"
-                    print"    </form>"
-                    };
+                    while($row=mysqli_fetch_array($results)){}
                     ?>
+                      <form method=post  class="form-contact contact_form" >
+                        <div class="row">
+                             <div class="col-12">
+                                  <div class="form-group">
+                                      <input class="form-control valid" name="locationName" id="locationName" type="text" value="<?php echo {$row['locationName']}?>"></textarea>
+                                  </div>
+                              </div>
+                              <div class="col-12">
+                                  <div class="form-group">
+                                      <input class="form-control valid" name="coordinates" id="coordinates" type="text" value="<?php echo {$row['locationXY']}?>">
+                                  </div>
+                              </div>
+                              <div class="col-12">
+                                  <div class="form-group">
+                                      <textarea class="form-control w-100" name="description" id="description" cols="30" rows="9" value="<?php echo {$row['locationDescription']}?>"></textarea>
+                                  </div>
+                              </div>
+                              <div class="col-12">
+                                  <div class="form-group">
+                                      <input class="form-control" name="minTime" id="minTime" type="text" value="<?php echo {$row['locationMinTime']}?>">
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form-group mt-3">
+                              <input type=submit class="button button-contactForm boxed-btn" value="Add"/>
+                          
+                          </div>
+                      </form>
+                    
+                    
                 </div>
                 
             </div>
