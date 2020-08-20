@@ -81,7 +81,7 @@
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <input type="submit" class="button button-contactForm boxed-btn" value="Add">
+                            <input type="submit" class="button button-contactForm boxed-btn" value="Add"/>
                         
                         </div>
                     </form>
