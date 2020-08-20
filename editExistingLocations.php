@@ -73,8 +73,8 @@
                     $sql = "select * from locations where locationId ='$menuVar';";
                     $results = mysqli_query($db,$sql) or die(mysqli_error($db));
                     while($row=mysqli_fetch_array($results)){
-                    print"
-                      <form method=post  class="form-contact contact_form" >
+                    echo"
+                      <form method="post" action='submit.php'  class="form-contact contact_form" >
                         <div class="row">
                              <div class="col-12">
                                   <div class="form-group">
