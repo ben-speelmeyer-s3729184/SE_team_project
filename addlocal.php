@@ -1,5 +1,5 @@
  <?php
- 
+  include("config.php");
   $locationName = mysqli_real_escape_string($db, $_P['locationName']);
   $coordinates = mysqli_real_escape_string($db, $_P['coordinates']);
   $description = mysqli_real_escape_string($db, $_P['description']);
