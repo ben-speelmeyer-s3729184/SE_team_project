@@ -72,7 +72,7 @@
                     <h2 class="contact-title">Add A New Location</h2>
                 </div>
                 <div class="col-lg-8">
-                    <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                    <form class="form-contact contact_form" method="post">
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
