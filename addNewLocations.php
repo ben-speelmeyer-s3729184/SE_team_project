@@ -19,10 +19,10 @@
   
   $sql = "INSERT INTO locations(locationName, locationXY, locationDescription, locationMinTime) VALUES ('$locationName','$coordinates','$description','$minTime');";
 
-  $retval = mysqli_query($sql,$db);
+  $retval = mysql_query($sql,$db);
 
   if(!$retval){
-    die('Could not enter data: ' . mysqli_error());
+    die('Could not enter data: ' . mysql_error());
   }
   echo "<script type='text/javascript'>alert('Data entered successfully');</script>";
 ?>
