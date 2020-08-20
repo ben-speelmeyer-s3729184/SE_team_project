@@ -1,7 +1,7 @@
  <?php
   include("config.php");
   session_start();
-  echo "<script type='text/javascript'>alert('Data entered successfully');</script>";
+  
   $locationName = $_POST['locationName'];
   $coordinates = $_POST['coordinates'];
   $description = $_POST['description'];
@@ -11,6 +11,7 @@
   
   if(mysqli_query($db,$sql)){
     echo "<script type='text/javascript'>alert('Data entered successfully');</script>";
+    sleep(5);
   }else{
     echo "ERROR: Not able to execute $sql. " . mysqli_error($db);
   }
