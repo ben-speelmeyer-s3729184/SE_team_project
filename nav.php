@@ -14,5 +14,8 @@
         <li class="nav-item active">
             <a class="nav-link  " href="logout.php">Logout</a>
         </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="#">Login as: <?php echo $_SESSION['login_user']?></a>
+        </li>        
     </ul>
 </nav>
