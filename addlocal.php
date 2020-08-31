@@ -3,11 +3,12 @@
   session_start();
   
   $locationName = $_POST['locationName'];
-  $coordinates = $_POST['coordinates'];
+  $coordinateX = $_POST['coordinateX'];
+  $coordinateY = $_POST['coordinateY'];
   $description = $_POST['description'];
   $minTime = $_POST['minTime'];
   
-  $sql = "INSERT INTO locations(locationName, locationXY, locationDescription, locationMinTime) VALUES ('$locationName','$coordinates','$description','$minTime');";
+  $sql = "INSERT INTO locations(locationName, locationX, locationY, locationDescription, locationMinTime) VALUES ('$locationName','$coordinateX','$coordinateY','$description','$minTime');";
   
   if(mysqli_query($db,$sql)){
     header('location: worked.php');

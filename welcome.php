@@ -13,7 +13,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>SEPM project</title>
 
   </head>
@@ -24,22 +26,9 @@
     </div>
     
   </header>
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link " href="index.php">Home</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link " href="addNewLocations.php">Add Locations</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link " href="editExistingLocations.php">Edit Locaiton</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link  " href="logout.php">Logout</a>
-      </li>
-    </ul>
-  </nav>
+  <?php
+    include('nav.php');
+  ?>
   <body>
     <div class="text-center">
         <p>Welcome to the Robot Tour Management System, please select an option from the navigation bar.</p> 
