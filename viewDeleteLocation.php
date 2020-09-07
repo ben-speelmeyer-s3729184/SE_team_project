@@ -4,6 +4,9 @@
   if(!isset($_SESSION['login_user'])){
     header("location: index.php");
   };
+  if($_SESSION['permLocation'] != 1 ){
+    header('location: welcome.php');
+  };
 ?>
 <!doctype html>
 <html>
