@@ -23,7 +23,8 @@
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">User accounts</a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="createUser.php">Add New User</a>
-                <a class="dropdown-item" href="">View and Delete Users</a>
+                <a class="dropdown-item" href="editExistingUser.php">Edit Users</a>
+                <a class="dropdown-item" href="viewDeleteUser.php">View and Delete Users</a>
             </div>
         </li>
         <li class="nav-item active">

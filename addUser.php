@@ -21,7 +21,10 @@
             $sql = "INSERT INTO users(role,username,password) VALUES ('$role','$username','$password');";
 
             if(mysqli_query($db,$sql)){
-                echo "<script> alert('Successfully added new user $username')";
+                echo '<script type="text/javascript">';
+                echo ' alert("User created successfully.");';  
+                echo 'window.location.href = "createUser.php";';
+                echo '</script>';
             }else{
                 echo "ERROR: Not able to execute $sql." . mysqli_error($db);
             } 
