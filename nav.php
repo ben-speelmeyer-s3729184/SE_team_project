@@ -9,9 +9,9 @@
         <li class="nav-item dropdown active">
             <a class="nav-link dropdown-toggle <?php if($_SESSION['permTour'] == 0 ){echo ' disabled';} ?> " data-toggle="dropdown" href="#">Tours</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="">Create New Tour</a>
-                <a class="dropdown-item" href="">Edit Tours</a>
-                <a class="dropdown-item" href="">View and Delete Tours</a>
+                <a class="dropdown-item" href="createNewTours.html">Create New Tour</a>
+                <a class="dropdown-item" href="editTourTypesSet.html">Edit Tours</a>
+                <a class="dropdown-item" href="manageTour.html">View and Delete Tours</a>
             </div>
         </li>
         <li class="nav-item dropdown active">
