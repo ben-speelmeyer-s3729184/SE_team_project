@@ -1,10 +1,13 @@
+<?php
+
+?>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav">
         <li class="nav-item active">
             <a class="nav-link " href="index.php">Home</a>
         </li>
         <li class="nav-item dropdown active">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Tours</a>
+            <a class="nav-link dropdown-toggle <?php if($_SESSION['permTour'] == 0 ){echo ' disabled';} ?> " data-toggle="dropdown" href="#">Tours</a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="">Create New Tour</a>
                 <a class="dropdown-item" href="">Edit Tours</a>
@@ -12,15 +15,15 @@
             </div>
         </li>
         <li class="nav-item dropdown active">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Locations</a>
+            <a class="nav-link dropdown-toggle <?php if($_SESSION['permLocation'] == 0 ){echo ' disabled';} ?> " data-toggle="dropdown" href="#">Locations</a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="addNewLocations.php">Add New Location</a>
                 <a class="dropdown-item" href="editExistingLocations.php">Edit Location</a>
-                <a class="dropdown-item" href="viewDeleteLocation.php">View and Delete Location</a>
+                <a class="dropdown-item" href="viewDeleteLocation.php">View, Delete and Copy Location</a>
             </div>
         </li>
         <li class="nav-item dropdown active">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">User accounts</a>
+            <a class="nav-link dropdown-toggle <?php if($_SESSION['permUser'] == 0 ){echo ' disabled';} ?> " data-toggle="dropdown" href="#">User accounts</a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="createUser.php">Add New User</a>
                 <a class="dropdown-item" href="editExistingUser.php">Edit Users</a>

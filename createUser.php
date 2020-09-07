@@ -73,6 +73,24 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
+                                        <label for=permTour>Tour Permission Granted</label>
+                                        <input type=checkbox id=premTour name=permTour value=1>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for=permTour>Location Permission Granted</label>
+                                        <input type=checkbox id=permLocation name=permLocation value=1>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for=permTour>User Permission Granted</label>
+                                        <input type=checkbox id=premUser name=permUser value=1>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
                                         <input required pattern=[A-Za-z0-9]{5,20} title='Please enter password between 5 to 20 characters' class="form-control valid" name="password1" id="password1" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter password'" placeholder="Enter password">
                                     </div>
                                 </div>

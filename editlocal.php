@@ -14,7 +14,10 @@
   $sql = "UPDATE locations SET locationName = '$locationName', locationX = '$coordinateX', locationY = '$coordinateY', locationDescription = '$description', locationMinTime = '$minTime' WHERE locationId = '$int_cast';";
   
   if(mysqli_query($db,$sql)){
-    header('location: worked.php');
+            echo '<script type="text/javascript">';
+            echo ' alert("Username is already taken, please choose another");';  
+            echo 'window.location.href = "createUser.php";';
+            echo '</script>';
   }else{
     echo "ERROR: Not able to execute $sql. " . mysqli_error($db);
   }

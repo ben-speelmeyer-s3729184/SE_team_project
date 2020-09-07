@@ -5,6 +5,14 @@
     $role = $_POST['role'];
     $username = $_POST['username'];
     $password = $_POST['password1'];
+    $permTour = $_POST['permTour'];
+    $permLocation = $_POST['permLocation'];
+    $permUser = $_POST['permUser'];
+   
+    $userIdInt = (int)$userId;
+    $permTourInt = (int)$permTour;
+    $permLocationInt = (int)$permLocation;
+    $permUserInt = (int)$permUser;
 
     if(isset($_POST['username'])){
         $sqlcheck = "SELECT username from users WHERE username = '$username';";
@@ -18,7 +26,7 @@
             echo '</script>';
             
         }else{
-            $sql = "INSERT INTO users(role,username,password) VALUES ('$role','$username','$password');";
+            $sql = "INSERT INTO users(role,username,password,permTour,permLocation,permUser) VALUES ('$role','$username','$password','$permTourInt','$permLocationInt','$permUserInt');";
 
             if(mysqli_query($db,$sql)){
                 echo '<script type="text/javascript">';

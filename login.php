@@ -6,17 +6,22 @@
    $myUserName = mysqli_real_escape_string($db,$_POST['userName']);
    $myPassword = mysqli_real_escape_string($db,$_POST['password']);
 
-   $sql = "SELECT id FROM users where username = '$myUserName' and password = '$myPassword'";
+   $sql = "SELECT id, permTour, permLocation, permUser FROM users where username = '$myUserName' and password = '$myPassword'";
    $result = mysqli_query($db,$sql);
    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
    $active = $row['active'];
+   $permTour = $row['permTour'];
+   $permLocation = $row['permLocation'];
+   $permUser = $row['permUser'];
 
    $count = mysqli_num_rows($result);
 
    if ($count == 1){
      
-     $_SESSION['login_user'] = $myUserName;
-
+    $_SESSION['login_user'] = $myUserName;
+    $_SESSION['permUser'] = $permUser;
+    $_SESSION['permLocation'] = $permLocation;
+    $_SESSION['permTour'] = $permTour;
      header("location: welcome.php");
     }else {
       $error = "Your username or password is incorrect";
