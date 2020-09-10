@@ -34,13 +34,12 @@
                     <h2 class="contact-title">View and delete Users</h2>
                 </div>
             </div>
-            <form method="post" action="deleteUser.php">
+            <form method="post" action="editUser.php">
                 <div style="height:500px;overflow-y:auto">
                     <div class="table-responsive">
                         <table class="table table-dark ">
                             <thead>
                                 <tr>
-                                    <th>Select</th>
                                     <th>User ID</th>
                                     <th>User role</th>
                                     <th>User Name</th>
@@ -48,6 +47,8 @@
                                     <th>Permission for location management</th>
                                     <th>Permission for user management</th>
                                     <th>Creation date</th>
+                                    <th>Delete</th>
+                                    <th>Edit</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -56,24 +57,21 @@
                                         $result_select = mysqli_query($db,$query_select) or die(mysqli_error($db));
                                         while($row=mysqli_fetch_array($result_select)){
                                             print"<tr>";
-                                            print"<td><input type=checkbox value={$row['id']} name=delete[]></td>";
-                                            print"<td>{$row['id']}</td>";
+                                            print"<td>{$row['userId']}</td>";
                                             print"<td>{$row['role']}</td>";
                                             print"<td>{$row['username']}</td>";
                                             print"<td>{$row['permTour']}</td>";
                                             print"<td>{$row['permLocation']}</td>";
                                             print"<td>{$row['permUser']}</td>";
                                             print"<td>{$row['created_at']}</td>";
+                                            print"<td><button type=submit name=delete1 value={$row['userId']}>Delete</button></td>";
+                                            print"<td><button type=submit class=button boxed-btn name=editButton value={$row['userId']}>Edit</button></td>";
                                             print"</tr>";
-                                            
                                         }
                                 ?>
                             </tbody>
                         </table> 
                     </div>
-                </div>
-                <div class="pt-2">
-                    <input  type="submit" name="but_delete" class="button  boxed-btn" value="Delete"/> 
                 </div>
             </form>
         </div>

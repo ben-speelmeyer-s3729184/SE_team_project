@@ -34,7 +34,7 @@
                         <h2 class="contact-title">Add A New Location</h2>
                     </div>
                     <div class="col-lg-8">
-                        <form  method=post action="addlocal.php"  class="form-contact contact_form" >
+                        <form  method=post action="addLocation.php"  class="form-contact contact_form" >
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">

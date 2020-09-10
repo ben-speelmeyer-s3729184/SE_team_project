@@ -6,7 +6,7 @@
    $myUserName = mysqli_real_escape_string($db,$_POST['userName']);
    $myPassword = mysqli_real_escape_string($db,$_POST['password']);
 
-   $sql = "SELECT id, permTour, permLocation, permUser FROM users where username = '$myUserName' and password = '$myPassword'";
+   $sql = "SELECT userId, permTour, permLocation, permUser FROM users where username = '$myUserName' and password = '$myPassword'";
    $result = mysqli_query($db,$sql);
    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
    $active = $row['active'];
