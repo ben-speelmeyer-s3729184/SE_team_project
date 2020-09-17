@@ -154,7 +154,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group mt-2">
+                            <div class="form-group mt-2 pb-5">
                                 <input type="submit" name=editSubmit class="button button-contactForm boxed-btn" value="Edit"/>
                             </div>
                         </form>
