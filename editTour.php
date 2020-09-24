@@ -1,25 +1,7 @@
 <?php
   include("config.php");
   session_start();
-  if(isset($_POST['but_delete'])){ //if not in use at the moment
-    if(isset($_POST['delete'])){
-      foreach($_POST['delete'] as $tourId){
-        $intID = (int)$tourId;
-        $qurey = "DELETE from tours WHERE tourId = '$intID';";
-        if(mysqli_query($db,$qurey)){
-            echo '<script type="text/javascript">';
-            echo ' alert("Tour deleted succesfully.");';  
-            echo 'window.location.href = "manageTours.php";';
-            echo '</script>';
-        }else{
-            echo '<script type="text/javascript">';
-            echo ' alert("Action failed.");';  
-            echo 'window.location.href = "manageTours.php";';
-            echo '</script>';
-        };
-      }
-    }
-  }
+  
   if(isset($_POST['delete1'])){
     $tourId = $_POST['delete1'];
     $intId = (int)$tourId;

@@ -32,7 +32,7 @@
         <div class="container">
             <div class="row" style="background-color:white;">
                 <div class="col-12">
-                    <h2 class="contact-title ">Edit Tours</h2>
+                    <h2 class="contact-title ">Manage Tours</h2>
                 </div>
             </div>
             <form method="post" action="editTour.php">

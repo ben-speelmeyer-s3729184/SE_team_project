@@ -64,7 +64,11 @@
                                             print"<td>{$row['permLocation']}</td>";
                                             print"<td>{$row['permUser']}</td>";
                                             print"<td>{$row['created_at']}</td>";
-                                            print"<td><button type=submit name=delete1 value={$row['userId']}>Delete</button></td>";
+                                            if($row['userId'] != 1){
+                                                print"<td><button type=submit name=delete1 value={$row['userId']}>Delete</button></td>";
+                                            }else{
+                                                print"<td><button type=button disabled>Delete</button></td>";
+                                            };
                                             print"<td><button type=submit class=button boxed-btn name=editButton value={$row['userId']}>Edit</button></td>";
                                             print"</tr>";
                                         }

@@ -49,7 +49,7 @@
 
     if(mysqli_query($db,$timeQ)){
         echo '<script type="text/javascript">';
-        echo ' alert("Location succesfully added.");';  
+        echo ' alert("Tour succesfully added.");';  
         echo 'window.location.href = "createTour.php";';
         echo '</script>';    
     }else{

@@ -4,19 +4,26 @@ session_start();
 
 if(isset($_POST['delete1'])){
     $userId = $_POST['delete1'];
-    $intID = (int)$userId;
-    $qurey = "DELETE from users WHERE userId = '$intID';";
-    
-    if(mysqli_query($db,$qurey)){
-      echo '<script type="text/javascript">';
-      echo ' alert("User deleted successfully.");';  
-      echo 'window.location.href = "manageUsers.php";';
-      echo '</script>';
+    if($userId != 1){
+        $intID = (int)$userId;
+        $qurey = "DELETE from users WHERE userId = '$intID';";
+        
+        if(mysqli_query($db,$qurey)){
+        echo '<script type="text/javascript">';
+        echo ' alert("User deleted successfully.");';  
+        echo 'window.location.href = "manageUsers.php";';
+        echo '</script>';
+        }else{
+        echo '<script type="text/javascript">';
+        echo ' alert("Action failed.");';  
+        echo 'window.location.href = "manageUsers.php";';
+        echo '</script>';
+        }
     }else{
-      echo '<script type="text/javascript">';
-      echo ' alert("Action failed.");';  
-      echo 'window.location.href = "manageUsers.php";';
-      echo '</script>';
+        echo '<script type="text/javascript">';
+        echo ' alert("Admin user 1, cannot be deleted.");';  
+        echo 'window.location.href = "manageUsers.php";';
+        echo '</script>';
     }
 };  
 ?>

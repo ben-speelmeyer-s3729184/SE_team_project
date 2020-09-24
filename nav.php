@@ -4,7 +4,7 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-            <a class="nav-link " href="index.php">Home</a>
+            <a class="nav-link " href="welcome.php">Home</a>
         </li>
         <li class="nav-item dropdown active">
             <a class="nav-link dropdown-toggle <?php if($_SESSION['permTour'] == 0 ){echo ' disabled';} ?> " data-toggle="dropdown" href="#">Tours</a>
