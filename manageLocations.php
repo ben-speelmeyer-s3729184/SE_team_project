@@ -59,7 +59,6 @@
                                                     print"<td>{$row['locationX']}</td>";
                                                     print"<td>{$row['locationY']}</td>";
                                                     print"<td>{$row['locationDescription']}</td>";
-                                                    print"<td><button onclick='speak({$row['locationDescription']})'>Play description</button></td>";
                                                     print"<td>{$row['locationMinTime']}</td>";
                                                     print"<td><button type=submit name=delete1 value={$row['locationId']}>Delete</button></td>";
                                                     print"<td><button type=submit class=button boxed-btn name=editButton value={$row['locationId']}>Edit</button></td>";

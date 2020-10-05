@@ -63,6 +63,7 @@ if(isset($_POST['editButton'])){
     ?>
     <!doctype html>
     <html>
+        
         <head>
             <?php
             include('scripts.php');
@@ -121,7 +122,14 @@ if(isset($_POST['editButton'])){
                                     </div>
                                 </div>
                                 <div class="form-group mt-3">
+                                <script type=text/javascript>
+                                    function speak(){
+                                        var speech =  new SpeechSynthesisUtterance(document.getElementById('description').value);
+                                        speechSynthesis.speak(speech);
+                                    }
+                                </script>
                                     <input type="submit" name=editSubmit class="button button-contactForm boxed-btn" value="Edit"/>
+                                    <button type="button"  onclick=speak() >Click to hear description</button>
                                 </div>
                             </form>
                         </div>

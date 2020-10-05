@@ -1,5 +1,5 @@
 <?php
-    include('config.php');
+    include('C:\xampp\htdocs\SE_team_project\Model\config.php');
     session_start();
 
     $user_check = $_SESSION['login_user'];
