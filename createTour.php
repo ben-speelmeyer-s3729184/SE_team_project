@@ -34,7 +34,7 @@
                         <h2 class="contact-title">Add A New Tour</h2>
                     </div>
                     <div class="col-lg-8">
-                        <form  method=post action="addTour.php"  class="form-contact contact_form" >
+                        <form  method=post action="submitNewTourToDatabase.php"  class="form-contact contact_form" >
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">

@@ -35,7 +35,7 @@
                     <h2 class="contact-title ">Manage Tours</h2>
                 </div>
             </div>
-            <form method="post" action="editTour.php">
+            <form method="post" action="updateTourDatabase.php">
                 <div style="height:500px;overflow-y:auto">
                     <div class="table-responsive">
                         <table class="table table-dark ">

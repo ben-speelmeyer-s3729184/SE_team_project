@@ -1,19 +1,19 @@
 <?php
-include("config.php");
+include("config.php"); // include the configuration file
 session_start();
 
-if(isset($_POST['delete1'])){
-  $locationId = $_POST['delete1'];
-  $intID = (int)$locationId;
-  $qurey = "DELETE from locations WHERE locationId = '$intID';";
-  if(mysqli_query($db,$qurey)){
+if(isset($_POST['delete1'])){ // if the button that submitted the form was nammed delete1 the program will enter this if statment
+  $locationId = $_POST['delete1']; // this passes the buttons value to the locationId variable 
+  $intID = (int)$locationId;// changes the variable from a string to an intager
+  $qurey = "DELETE from locations WHERE locationId = '$intID';";// will delete the row from the database where the locationId is equal to the one from the form
+  if(mysqli_query($db,$qurey)){//execute the query
     echo '<script type="text/javascript">';
-    echo ' alert("Location deleted successfully.");';  
+    echo ' alert("Location deleted successfully.");'; // alerts the user if successful 
     echo 'window.location.href = "manageLocations.php";';
     echo '</script>'; 
   }else{
     echo '<script type="text/javascript">';
-    echo ' alert("Action failed.");';  
+    echo ' alert("Action failed.");';  // alerts the user if unsuccessful
     echo 'window.location.href = "manageLocations.php";';
     echo '</script>'; 
   }
@@ -22,42 +22,42 @@ if(isset($_POST['delete1'])){
 
 
 
-if(isset($_POST['copyButton'])){
-  $locationId = $_POST['copyButton'];
-  $intId = (int)$locationId;
-  $qurey = "SELECT * from locations WHERE locationId = '$intId';";
-  $result = mysqli_query($db,$qurey) or die(mysqli_error($db));
-  while($row=mysqli_fetch_array($result)){
+if(isset($_POST['copyButton'])){//if the form was submitted by the button named copyButton the program will enter this if statment
+  $locationId = $_POST['copyButton'];// gets the location id from the button value
+  $intId = (int)$locationId;// converts the value from a string to a intager
+  $qurey = "SELECT * from locations WHERE locationId = '$intId';"; // users the location id value from the from to find the data of that location as to copy its data
+  $result = mysqli_query($db,$qurey) or die(mysqli_error($db));//statment to get the data from the database to be copied in the database
+  while($row=mysqli_fetch_array($result)){ // using the while statment to insert the data into a create statment
     $sql = "INSERT INTO locations(locationName, locationX, locationY, locationDescription, locationMinTime)
-    VALUES ('{$row['locationName']}','{$row['locationX']}','{$row['locationY']}','{$row['locationDescription']}','{$row['locationMinTime']}');";
-    if(mysqli_query($db,$sql)){
+    VALUES ('{$row['locationName']}','{$row['locationX']}','{$row['locationY']}','{$row['locationDescription']}','{$row['locationMinTime']}');";// this function will copy everything from the original location but the locationId a new locationid will be add to the copied locatoin to mitigate duplicate location id's
+    if(mysqli_query($db,$sql)){//execute the query
       echo '<script type="text/javascript">';
-      echo ' alert("Location Copied successfully.");';  
+      echo ' alert("Location Copied successfully.");'; // alert the user if the query was successful  
       echo 'window.location.href = "manageLocations.php";';
       echo '</script>'; 
     }else{
       echo '<script type="text/javascript">';
       echo ' alert("Action failed.");';  
-      echo 'window.location.href = "manageLocations.php";';
+      echo 'window.location.href = "manageLocations.php";';// alert the user if the query was unsuccessful
       echo '</script>'; 
     }
   }
       
 }
 
-if(isset($_POST['editButton'])){
+if(isset($_POST['editButton'])){// if the button used to submit the form was name editButton the program will enter this if statment
   
-  $locationId = $_POST['editButton'];
-  $intId = (int)$locationId;
+  $locationId = $_POST['editButton']; // the value of the button is retrieved 
+  $intId = (int)$locationId; // the value is changed from a string to an intager
 
-  $q = "SELECT * FROM locations WHERE locationId = '$intId';";
+  $q = "SELECT * FROM locations WHERE locationId = '$intId';"; // this qurey will get the location data form the database to populate the form for editing
 
-  $result = mysqli_query($db,$q);
-  while($row=mysqli_fetch_array($result)){
-      if(!isset($_SESSION['login_user'])){
+  $result = mysqli_query($db,$q);// execute the query
+  while($row=mysqli_fetch_array($result)){ // while loop used to populate the from form the result of the sql statment
+      if(!isset($_SESSION['login_user'])){ // check if the user is logged in 
         header("location: index.php");
       };
-      if($_SESSION['permLocation'] != 1 ){
+      if($_SESSION['permLocation'] != 1 ){ //check if the user has location permissions
           header('location: welcome.php');
       };
     ?>
@@ -66,7 +66,7 @@ if(isset($_POST['editButton'])){
         
         <head>
             <?php
-            include('scripts.php');
+            include('scripts.php'); // include relivent scripts for the page
             ?>
         <title>Manage Locations</title>  
         </head>
@@ -78,7 +78,7 @@ if(isset($_POST['editButton'])){
         </header>
 
         <?php
-            include('nav.php');
+            include('nav.php'); // include the navigation element
         ?>
         <body class="bg">
             <section class="contact-section">
@@ -92,7 +92,7 @@ if(isset($_POST['editButton'])){
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type=text readonly name=locationId value=<?php echo "{$row['locationId']}";?>>
+                                            <input type=text readonly name=locationId value=<?php echo "{$row['locationId']}";?>> <!-- populate the location id, though it is disabled so the user can not change it -->
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -125,13 +125,13 @@ if(isset($_POST['editButton'])){
                                 <script type=text/javascript>
                                     function speak(){
                                         var speech =  new SpeechSynthesisUtterance(document.getElementById('description').value);
-                                        speechSynthesis.speak(speech);
+                                        speechSynthesis.speak(speech);  //user javascripts inbuilt class speechSynthesis to read the description to the user, this function is triggered by the "click to hear description" button
                                     }
                                 </script>
-                                    <input type="submit" name=editSubmit class="button button-contactForm boxed-btn" value="Edit"/>
+                                    <input type="submit" name=editSubmit class="button button-contactForm boxed-btn" value="Edit"/> <!-- once the modifications are submitted the editSubmit if statment will be triggered -->
                                     <button type="button"  onclick=speak() >Click to hear description</button>
                                 </div>
-                            </form>
+                            </form><!-- end of form -->
                         </div>
                     </div>
                 </div>
@@ -149,26 +149,26 @@ if(isset($_POST['editButton'])){
   } //end of while loop
 }
 
-if(isset($_POST['editSubmit'])){
+if(isset($_POST['editSubmit'])){ // after the location has been modified this if statment will be triggered
   $locationId = $_POST['locationId'];
-  $locationName = $_POST['locationName'];
+  $locationName = $_POST['locationName'];//all the values of the from are collected 
   $coordinateX = $_POST['coordinateX'];
   $coordinateY = $_POST['coordinateY'];
   $description = $_POST['description'];
   $minTime = $_POST['minTime'];
 
-  $int_cast = (int)$locationId;
+  $int_cast = (int)$locationId; // location id is changed from a string to an intager
   
-  $sql = "UPDATE locations SET locationName = '$locationName', locationX = '$coordinateX', locationY = '$coordinateY', locationDescription = '$description', locationMinTime = '$minTime' WHERE locationId = '$int_cast';";
+  $sql = "UPDATE locations SET locationName = '$locationName', locationX = '$coordinateX', locationY = '$coordinateY', locationDescription = '$description', locationMinTime = '$minTime' WHERE locationId = '$int_cast';"; // this statment will update the existing location with the updated data
   
   if(mysqli_query($db,$sql)){
     echo '<script type="text/javascript">';
-    echo ' alert("Location edited successfully.");';  
+    echo ' alert("Location edited successfully.");';  // alert the user if successful
     echo 'window.location.href = "manageLocations.php";';
     echo '</script>';
   }else{
     echo '<script type="text/javascript">';
-    echo ' alert("Action failed.");';  
+    echo ' alert("Action failed.");';  //alert the user if unsuccessful
     echo 'window.location.href = "manageLocations.php";';
     echo '</script>';
   }

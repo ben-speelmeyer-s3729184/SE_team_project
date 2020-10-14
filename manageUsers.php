@@ -34,7 +34,7 @@
                     <h2 class="contact-title">View and delete Users</h2>
                 </div>
             </div>
-            <form method="post" action="editUser.php">
+            <form method="post" action="updateUserDatabase.php">
                 <div style="height:500px;overflow-y:auto">
                     <div class="table-responsive">
                         <table class="table table-dark ">

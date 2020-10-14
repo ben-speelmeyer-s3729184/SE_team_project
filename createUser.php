@@ -58,7 +58,7 @@
                         <h2 class="contact-title">Add A New User</h2>
                     </div>
                     <div class="col-lg-8">
-                        <form  method=post action="addUser.php" onsubmit="return checkPassword(this)"  class="form-contact contact_form" >
+                        <form  method=post action="submitNewUserToDatabase.php" onsubmit="return checkPassword(this)"  class="form-contact contact_form" >
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
