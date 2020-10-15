@@ -1,40 +1,40 @@
 <?php
-include("config.php");
+include("config.php");// include database configuration file
 session_start();
 
-if(isset($_POST['delete1'])){
+if(isset($_POST['delete1'])){// if button named delete1 submitted the form this if statment is triggered
     $userId = $_POST['delete1'];
-    if($userId != 1){
+    if($userId != 1){// another statment to prevent the admin account being deleted
         $intID = (int)$userId;
         $qurey = "DELETE from users WHERE userId = '$intID';";
         
         if(mysqli_query($db,$qurey)){
         echo '<script type="text/javascript">';
-        echo ' alert("User deleted successfully.");';  
+        echo ' alert("User deleted successfully.");';  //alert user to successful operation 
         echo 'window.location.href = "manageUsers.php";';
         echo '</script>';
         }else{
         echo '<script type="text/javascript">';
-        echo ' alert("Action failed.");';  
+        echo ' alert("Action failed.");';  //alert user to failed operation
         echo 'window.location.href = "manageUsers.php";';
         echo '</script>';
         }
     }else{
         echo '<script type="text/javascript">';
         echo ' alert("Admin user 1, cannot be deleted.");';  
-        echo 'window.location.href = "manageUsers.php";';
+        echo 'window.location.href = "manageUsers.php";';//alert user that the admin account can not be deleted
         echo '</script>';
     }
 };  
 ?>
 
 <?php
-if(isset($_POST['editButton'])){
+if(isset($_POST['editButton'])){// if the button that submitted the form is named editButton this if statment is triggered
   $userId = $_POST['editButton'];
   $intId = (int)$userId;
-  $q = "SELECT * FROM users WHERE userId = '$intId';";
+  $q = "SELECT * FROM users WHERE userId = '$intId';";// gets the user data via the userid gained from the form
   $result = mysqli_query($db,$q);
-  while($row=mysqli_fetch_array($result)){ 
+  while($row=mysqli_fetch_array($result)){ //while loop to populate the form for editing 
     if(!isset($_SESSION['login_user'])){
         header("location: index.php");
     };
@@ -166,7 +166,7 @@ if(isset($_POST['editButton'])){
 ?>
 
 <?php
-  if(isset($_POST['editSubmit'])){
+  if(isset($_POST['editSubmit'])){// if the editSubmit button submits the form this if statment will be triggered
       $userId = $_POST['id'];
       $role = $_POST['role'];
       $username = $_POST['username'];
@@ -179,18 +179,18 @@ if(isset($_POST['editButton'])){
       $permTourInt = (int)$permTour;
       $permLocationInt = (int)$permLocation;
       $permUserInt = (int)$permUser;
-        
+        //query to update the data under the userid gained from the submitted form
       $sql = "UPDATE users SET username = '$username', role = '$role', password = '$password', permTour = '$permTourInt', permLocation = '$permLocationInt', permUser = '$permUserInt' WHERE userId = '$userIdInt';";
         
       if(mysqli_query($db,$sql)){
           echo '<script type="text/javascript">';
           echo ' alert("User edited successfully.");';  
-          echo 'window.location.href = "manageUsers.php";';
+          echo 'window.location.href = "manageUsers.php";';//alert the user to successful operation
           echo '</script>';
       }else{
         echo '<script type="text/javascript">';
           echo ' alert("Action failed.");';  
-          echo 'window.location.href = "manageUsers.php";';
+          echo 'window.location.href = "manageUsers.php";';//alert the user to failed operation
           echo '</script>';
       };
   };

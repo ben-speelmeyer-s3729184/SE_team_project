@@ -1,10 +1,10 @@
 <?php
   include("config.php");
   session_start();
-  if(!isset($_SESSION['login_user'])){
+  if(!isset($_SESSION['login_user'])){//check  if the user is logged in 
     header("location: index.php");
   };
-  if($_SESSION['permUser'] != 1 ){
+  if($_SESSION['permUser'] != 1 ){// check if the user has user permissions
     header('location: welcome.php');
   };
 ?>
@@ -48,7 +48,7 @@
     </header>
 
     <?php
-        include('nav.php');
+        include('nav.php');// include navigation element
     ?>
     <body class="bg">
         <section class="contact-section">
@@ -58,7 +58,7 @@
                         <h2 class="contact-title">Add A New User</h2>
                     </div>
                     <div class="col-lg-8">
-                        <form  method=post action="submitNewUserToDatabase.php" onsubmit="return checkPassword(this)"  class="form-contact contact_form" >
+                        <form  method=post action="submitNewUserToDatabase.php" onsubmit="return checkPassword(this)"  class="form-contact contact_form" ><!-- begin form-->
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
@@ -104,7 +104,7 @@
                                 </div>
                             </div>
                             <div class="form-group mt-3">
-                                <input type="submit" class="button button-contactForm boxed-btn" value="Add"/>
+                                <input type="submit" class="button button-contactForm boxed-btn" value="Add"/><!-- submits the form to submit new user to data base--> 
                             </div>
                         </form>
                     </div>
@@ -115,7 +115,7 @@
 
     <footer>
         <?php
-            include('footer.php');
+            include('footer.php');//include footer element 
         ?>
     </footer>
 

@@ -1,10 +1,10 @@
 <?php
   include("config.php");
   session_start();
-  if(!isset($_SESSION['login_user'])){
+  if(!isset($_SESSION['login_user'])){// check the user is logged in 
     header("location: index.php");
   };
-  if($_SESSION['permTour'] != 1 ){
+  if($_SESSION['permTour'] != 1 ){// check the user has tour permissions
       header('location: welcome.php');
   };
 ?>
@@ -12,7 +12,7 @@
 <html>
     <head>
         <?php
-        include('scripts.php');
+        include('scripts.php');// inlcude relivant scripts
         ?>
     <title>Manage Tour</title>  
     </head>
@@ -24,7 +24,7 @@
     </header>
 
     <?php
-        include('nav.php');
+        include('nav.php');// include navigation element
     ?>
     <body class="bg">
         <section class="contact-section">
@@ -70,10 +70,10 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                            $query_select = 'SELECT * from locations;';
+                                                            $query_select = 'SELECT * from locations;';// this section gets all the locations from the database to be added to the tour
                                                             $result_select = mysqli_query($db,$query_select) or die(mysqli_error($db));
                                                             while($row=mysqli_fetch_array($result_select)){
-                                                                print"<tr>";
+                                                                print"<tr>";//the check box has the value of the locationId from the locations to be carried to the submit new tour page
                                                                 print"<td><input type=checkbox value={$row['locationId']} name=addLocation[]></td>";
                                                                 print"<td>{$row['locationId']}</td>";
                                                                 print"<td>{$row['locationName']}</td>";
@@ -92,7 +92,7 @@
                                 </div>
                             </div>
                             <div class="form-group mt-2">
-                                <input type="submit" class="button button-contactForm boxed-btn" value="Add"/>
+                                <input type="submit" class="button button-contactForm boxed-btn" value="Add"/><!--submits the form to the submit new tour to database file-->
                             </div>
                         </form>
                     </div>
@@ -103,7 +103,7 @@
 
     <footer>
         <?php
-            include('footer.php');
+            include('footer.php');//include the footer element
         ?>
     </footer>
 

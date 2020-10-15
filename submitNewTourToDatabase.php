@@ -1,11 +1,11 @@
 <?php
-    include("config.php");
+    include("config.php");// include the database config file 
     session_start();
 
     $tourName = $_POST['tourName'];
     $tourType = $_POST['tourType'];
 
-    if(isset($_POST['tourName'])){
+    if(isset($_POST['tourName'])){//check if the tour name has already been taken
         $sqlcheck = "SELECT tourName from tours WHERE tourName = '$tourName';";
         $result = mysqli_query($db,$sqlcheck);
         $numrows = mysqli_num_rows($result);
@@ -15,11 +15,11 @@
             echo 'window.location.href = "createTour.php";';
             echo '</script>';
         }else{
-            $sql = "INSERT INTO tours(tourName,tourType,tourStatus) VALUES ('$tourName','$tourType','active');";
+            $sql = "INSERT INTO tours(tourName,tourType,tourStatus) VALUES ('$tourName','$tourType','active');";//insert values into the database
             mysqli_query($db,$sql);
         }
     }
-    if(isset($_POST['addLocation'])){
+    if(isset($_POST['addLocation'])){// add locations to tour
         $getTourId = "SELECT tourId FROM tours WHERE tourName = '$tourName';";
         $resultTourId = mysqli_query($db,$getTourId);
         $rowName = mysqli_fetch_array($resultTourId);
