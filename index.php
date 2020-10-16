@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <?php
-      include('scripts.php');
+      include('scripts.php');//include relivant scripts for page
     ?>
     <title>SEPM project</title>
   </head>
@@ -18,14 +18,14 @@
     </div>   
     <div class="container-sm my-3">
         <div class="text-center">
-            <a href="login.php">Login</a>
+            <a href="login.php">Login</a><!--only login point for the system-->
         </div>
     </div>  
   </body>
   
   <footer>
     <?php
-      include('footer.php');
+      include('footer.php');//inlcude footer element
     ?>   
   </footer>
 

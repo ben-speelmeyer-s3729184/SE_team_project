@@ -1,35 +1,35 @@
 <?php
-  include("config.php");
+  include("config.php");//include database configuration file
   session_start();
   
-  if(isset($_POST['delete1'])){
-    $tourId = $_POST['delete1'];
-    $intId = (int)$tourId;
-    $q = "DELETE FROM tours WHERE tourId = '$intId';";
+  if(isset($_POST['delete1'])){//if delete button submitted form this if statment is trigger
+    $tourId = $_POST['delete1'];// get the tour id from the delete button value
+    $intId = (int)$tourId; //change string to int
+    $q = "DELETE FROM tours WHERE tourId = '$intId';";// delete from the database
     if(mysqli_query($db,$q)){
     echo '<script type="text/javascript">';
-    echo ' alert("Tour deleted succesfully.");';  
+    echo ' alert("Tour deleted succesfully.");';  //alert user to successfull operation
     echo 'window.location.href = "manageTours.php";';
     echo '</script>';
     }else{
         echo '<script type="text/javascript">';
-        echo ' alert("Action failed.");';  
+        echo ' alert("Action failed.");';  // alert user to failed operation
         echo 'window.location.href = "manageTours.php";';
         echo '</script>';
     };
   }
-  if(isset($_POST['editButton'])){
+  if(isset($_POST['editButton'])){// if edit button is used this if statment will be triggered and then edit page displayed to user
      $tourId = $_POST['editButton'];
      $intId = (int)$tourId;
-     $getTourById = "SELECT * FROM tours WHERE tourId = '$intId';";
+     $getTourById = "SELECT * FROM tours WHERE tourId = '$intId';";//get the tour details from data base
      $tourResult = mysqli_query($db,$getTourById);
-     while($tourRow=mysqli_fetch_array($tourResult)){
+     while($tourRow=mysqli_fetch_array($tourResult)){//while loop to populate the form diplayed
         ?>
         <?php
-          if(!isset($_SESSION['login_user'])){
+          if(!isset($_SESSION['login_user'])){//check user is logged in
             header("location: index.php");
           };
-          if($_SESSION['permTour'] != 1 ){
+          if($_SESSION['permTour'] != 1 ){//check user has permissions
             header('location: welcome.php');
           };
         ?>
@@ -37,7 +37,7 @@
             <html>
                 <head>
                     <?php
-                    include('scripts.php');
+                    include('scripts.php');// include relivant scripts
                     ?>
                     <title>Manage Tours</title>
                 </head>
@@ -49,7 +49,7 @@
                 </header>
 
                 <?php
-                    include('nav.php');
+                    include('nav.php');//include navigation element
                 ?>
 
                 <body class="align-content-center">
@@ -74,7 +74,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <h5>Select tour type:</h5>
-                                        <lable for=long>Long</label>
+                                        <lable for=long>Long</label><!--determin and activate relivant tour type-->
                                         <input <?php if($tourRow['tourType'] == 'long'){echo ' checked=true ';} ?> type=radio value=long name=tourType id=long>
                                         <lable for=medium>Medium</label>
                                         <input <?php if($tourRow['tourType'] == 'medium'){echo ' checked=true ';} ?> type=radio value=medium name=tourType id=medium>
@@ -85,7 +85,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <h5>Select tour status:</h5>
-                                        <lable for=active>Active</label>
+                                        <lable for=active>Active</label><!-- determin and activate relivant tour status-->
                                         <input <?php if($tourRow['tourStatus'] == 'active'){echo ' checked=true ';} ?>type=radio value=active name=tourStatus id=active>
                                         <lable for=deactivated>Deactivated</label>
                                         <input <?php if($tourRow['tourStatus'] == 'deactivated'){echo ' checked=true ';} ?> type=radio value=deactivated name=tourStatus id=deactivated>
@@ -110,13 +110,13 @@
                                                 <tbody>
                                                     <?php
                                                         $dataArray = array();
-                                                        $localId = "SELECT locationId FROM tourLocations WHERE tourId = '{$tourRow['tourId']}';";
+                                                        $localId = "SELECT locationId FROM tourLocations WHERE tourId = '{$tourRow['tourId']}';";//get all locations from tourlocations
                                                         $resultLocalId = mysqli_query($db,$localId);
                                                         while($rowLocalId=mysqli_fetch_array($resultLocalId)){
-                                                            $dataArray[] = $rowLocalId['locationId'];    
+                                                            $dataArray[] = $rowLocalId['locationId'];    //input all tourlocations to array
                                                         };
                                                         $query_select = 'SELECT * from locations;';
-                                                        $result_select = mysqli_query($db,$query_select) or die(mysqli_error($db));
+                                                        $result_select = mysqli_query($db,$query_select) or die(mysqli_error($db));//use while loop to get location data where location id is in data array
                                                         while($row=mysqli_fetch_array($result_select)){?>
                                                             <tr>
                                                             <td><input type=checkbox  <?php if(in_array($row['locationId'],$dataArray)){echo ' checked=true ';} ?> value=<?php echo "{$row['locationId']};"?> name=addLocation[]></td>
@@ -137,7 +137,7 @@
                                 </div>
                             </div>
                             <div class="form-group mt-2 pb-5">
-                                <input type="submit" name=editSubmit class="button button-contactForm boxed-btn" value="Edit"/>
+                                <input type="submit" name=editSubmit class="button button-contactForm boxed-btn" value="Edit"/><!--submit the edited data.--> 
                             </div>
                         </form>
                     </div>
@@ -145,7 +145,7 @@
 
                 <footer>
                     <?php
-                    include('footer.php');
+                    include('footer.php');//include footer element
                     ?>
                 </footer>
             </html>
@@ -154,7 +154,7 @@
       }//end of while loop
 
   }
-  if(isset($_POST['editSubmit'])){
+  if(isset($_POST['editSubmit'])){//rest of code block will update tour database and tourlocations database in the same way new tours are added
     $tourId = $_POST['tourId'];
     $tourName = $_POST['tourName'];
     $tourType = $_POST['tourType'];

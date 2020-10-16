@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if(!isset($_SESSION['login_user'])){
+  if(!isset($_SESSION['login_user'])){//check user is logged in
     header("location: index.php");
   };
 ?>
@@ -8,7 +8,7 @@
 <html lang="en">
   <head>
     <?php
-      include('scripts.php');
+      include('scripts.php');//inlcude relivent scripts
     ?>
     <title>SEPM project</title>
   </head>
@@ -20,7 +20,7 @@
   </header>
 
   <?php
-    include('nav.php');
+    include('nav.php');//include navigation element
   ?>
 
   <body>
@@ -31,7 +31,7 @@
 
   <footer>
     <?php
-      include('footer.php');
+      include('footer.php');//inlcude footer element
     ?>
   </footer>
 

@@ -1,7 +1,7 @@
 <?php
     include('config.php');
     session_start();
-
+    //file starts and stores session values
     $user_check = $_SESSION['login_user'];
 
     $ses_sql = mysqli_query($db,"select username from users where username = '$user_check'" );

@@ -1,12 +1,12 @@
 <?php
-
+//navigation element for all pages
 ?>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
             <a class="nav-link " href="welcome.php">Home</a>
         </li>
-        <li class="nav-item dropdown active">
+        <li class="nav-item dropdown active"><!--below line check permissions, if = 0 the nav item is disabled--> 
             <a class="nav-link dropdown-toggle <?php if($_SESSION['permTour'] == 0 ){echo ' disabled';} ?> " data-toggle="dropdown" href="#">Tours</a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="createTour.php">Create New Tour</a>

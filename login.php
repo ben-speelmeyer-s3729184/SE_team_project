@@ -1,11 +1,11 @@
 <?php
- include("config.php");
+ include("config.php");//inlcude database configuration file
  session_start();
  if($_SERVER["REQUEST_METHOD"] == "POST"){
-  $myUserName = mysqli_real_escape_string($db,$_POST['userName']);
+  $myUserName = mysqli_real_escape_string($db,$_POST['userName']);//get value from form and remove sql elements for security
   $myPassword = mysqli_real_escape_string($db,$_POST['password']);
 
-  $sql = "SELECT userId, permTour, permLocation, permUser FROM users where username = '$myUserName' and password = '$myPassword'";
+  $sql = "SELECT userId, permTour, permLocation, permUser FROM users where username = '$myUserName' and password = '$myPassword'";//get username, password and permissions form user database
   $result = mysqli_query($db,$sql);
   $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
   $active = $row['active'];
@@ -15,15 +15,15 @@
 
   $count = mysqli_num_rows($result);
 
-  if ($count == 1){
+  if ($count == 1){//if row equals one then user is verified
       
-      $_SESSION['login_user'] = $myUserName;
+      $_SESSION['login_user'] = $myUserName;//create session variables for permissions
       $_SESSION['permUser'] = $permUser;
       $_SESSION['permLocation'] = $permLocation;
       $_SESSION['permTour'] = $permTour;
       header('location: welcome.php');
       }else {
-      $error = "Your username or password is incorrect";
+      $error = "Your username or password is incorrect";//alert user the username or password is incorrect
       
       echo "<script type='text/javascript'>alert('$error');</script>";
       }
@@ -35,7 +35,7 @@
 <html lang="en">
   <head>
     <?php
-      include('scripts.php');
+      include('scripts.php');// include relivant scritps for page
     ?>
     <title>SEPM project</title>
     <script type=text/javascript>
@@ -81,7 +81,7 @@
   </body>
   <footer>
     <?php
-      include('footer.php');
+      include('footer.php');//include footer element
     ?>
   </footer>
 
